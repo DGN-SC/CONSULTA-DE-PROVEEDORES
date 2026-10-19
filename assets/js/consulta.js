@@ -1,3 +1,31 @@
+const hostname = window.location.hostname;
+
+// Detectar si el navegador está corriendo en tu computadora local
+const isLocalNetwork = Boolean(
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname === "[::1]" ||
+    hostname.startsWith("192.168.") ||
+    hostname.startsWith("10.") ||
+    hostname.startsWith("172.")
+);
+
+// Reemplaza esta URL por la URL real de tu backend desplegado (debe ser HTTPS)
+//const URL_PRODUCCION = "https://tu-backend-en-render.onrender.com";
+
+const BASE_URL = isLocalNetwork
+    ? "http://localhost:4000"
+    : URL_PRODUCCION;
+
+const API_CONFIG = {
+    BASE_URL: BASE_URL,
+    PROVEEDORES_URL: `${BASE_URL}/api/proveedores/consulta`,
+    PROVEEDORES_NOMBRE_URL: `${BASE_URL}/api/proveedores/consulta-nombre`
+};
+
+console.log("CONSULTA.JS: Conectado a:", BASE_URL);
+
+/*
 // Configuración para entorno local
 const BASE_URL = "http://localhost:4000";
 
@@ -7,7 +35,7 @@ const API_CONFIG = {
     PROVEEDORES_NOMBRE_URL: `${BASE_URL}/api/proveedores/consulta-nombre`
 };
 
-console.log("CONSULTA.JS: Conectado a API local en puerto 4000");
+console.log("CONSULTA.JS: Conectado a API local en puerto 4000");*/
 
 /**
  * CONSULTA 1: Ejercicio Fiscal + Nombre (Opcional)
