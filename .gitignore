@@ -1,0 +1,15 @@
+# Dependencias de Node
+node_modules/
+
+# Archivos de configuración local con contraseñas
+.env
+Backend/.env
+
+# Respaldos de base de datos y archivos pesados de documentación
+*.sql
+bakup_*
+*.docx
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
